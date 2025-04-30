@@ -7,16 +7,6 @@ import styles from "./AlbumCart.module.css";
 const PHOTOS_LIMIT = 3;
 const IMAGE_URL = "https://placehold.co/150x150/92c952/fff";
 
-// const styles = {
-//   list: {
-//     display: "flex",
-//     gap: "0.5rem",
-//     listStyle: "none",
-//     padding: "0",
-//     margin: "0",
-//   },
-// };
-
 export function AlbumCart({ album }: AlbumCartProps) {
   const PHOTOS_URL = `${BASE_URL}/photos?albumId=${album.id}&_limit=${PHOTOS_LIMIT}`;
   const { data: photos, isLoading, isError } = useFetch<AlbumPhoto>(PHOTOS_URL);

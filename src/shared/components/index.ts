@@ -1,3 +1,4 @@
 import { Navigation } from "./Navigation/Navigation";
+import { BaseLayout } from "./BaseLayout/BaseLayout";
 
-export { Navigation };
+export { BaseLayout, Navigation };
