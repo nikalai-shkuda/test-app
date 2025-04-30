@@ -3,7 +3,8 @@ import { useFetch } from "../../shared/hooks/useFetch";
 import { AlbumCart } from "./AlbumCart";
 import { Album } from "./types";
 
-const AlBUMS_URL = `${BASE_URL}/albums`;
+const AlBUMS_LIMIT = 10;
+const AlBUMS_URL = `${BASE_URL}/albums?_limit=${AlBUMS_LIMIT}`;
 
 export default function AlbumGallerySection() {
   const { data: albums, isLoading, isError } = useFetch<Album>(AlBUMS_URL);

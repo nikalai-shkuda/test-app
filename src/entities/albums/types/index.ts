@@ -8,4 +8,15 @@ export type AlbumCartProps = {
   album: Album;
 };
 
-// TODO AlbumThumbnail
+export type AlbumPhoto = {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+};
+
+export type AlbumThumbnailProps = {
+  title: string;
+  url: string;
+};
