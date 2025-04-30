@@ -1,5 +1,11 @@
+import { UserListSection } from "./entities/users";
+
 function App() {
-  return <>app</>;
+  return (
+    <>
+      <UserListSection />
+    </>
+  );
 }
 
 export default App;
