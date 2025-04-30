@@ -1,43 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BASE_URL } from "../../shared/constants";
+import { useFetch } from "../../shared/hooks/useFetch";
 import { User } from "./types";
 import { UserCard } from "./UserCard";
 
+const POSTS_URL = `${BASE_URL}/users`;
+
 export default function UserListSection() {
-  const [users, setUsers] = useState<User[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    const fetchUsers = async () => {
-      setIsLoading(true);
-      setIsError(false);
-      try {
-        // throw new Error("Error");
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        const response = await fetch(`${BASE_URL}/users`, {
-          signal: abortController.signal,
-        });
-        const users = await response.json();
-        setUsers(users);
-      } catch (error) {
-        if ((error as any).name !== "AbortError") {
-          console.log(error);
-          setIsError(true);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchUsers();
-
-    return () => {
-      abortController.abort();
-    };
-  }, []);
+  const { data: users, isLoading, isError } = useFetch<User>(POSTS_URL);
 
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(search.toLowerCase().trim())
