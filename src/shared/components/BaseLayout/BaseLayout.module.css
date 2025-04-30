@@ -1,0 +1,23 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  nav {
+    ul {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
+
+.header,
+.footer {
+  padding: 0.5rem 1rem;
+}
+
+.main {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 1rem;
+}
