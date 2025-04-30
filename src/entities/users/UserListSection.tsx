@@ -21,6 +21,7 @@ export default function UserListSection() {
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search by name..."
       />
       {isLoading && !isError && <div>Loading...</div>}
       {!isLoading && isError && <div>Error, try again</div>}
